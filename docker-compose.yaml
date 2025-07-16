@@ -1,0 +1,30 @@
+services:
+
+  db:
+    image: mysql:8.1
+    container_name: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: course
+    ports:
+      - "3307:3306"
+    networks:
+      - my-network
+
+#  app:
+#    container_name: app
+#    build:
+#      context: .
+#      dockerfile: Dockerfile
+#    environment:
+#      SPRING_DATASOURCE_URL: jdbc:mysql://db:3306/course
+#    depends_on:
+#      - db
+#    ports:
+#      - "8001:8000"
+#    networks:
+#      - my-network
+
+networks:
+  my-network:
+    driver: bridge
