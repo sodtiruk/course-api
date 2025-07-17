@@ -17,7 +17,7 @@ public class HealthCheckController {
         return ResponseEntity.status(200).body(BaseResponse.<String>builder()
                     .data("Service is running")
                     .message(SUCCESS)
-                    .statusCode(SUCCESS_CODE)
+                    .status(SUCCESS_CODE)
                     .build());
     }
 

@@ -57,8 +57,7 @@ public class AuthService {
     }
 
     public RegisterResponse register(RegisterRequest registerRequest) {
-
-        // เพิ่มเงื่อนไขเช็ค email ซ้ำ
+        // check email exists already
         if (authRepository.findByEmail(registerRequest.getEmail()).isPresent()) {
             throw new RuntimeException("Email is already in use.");
         }
@@ -72,7 +71,6 @@ public class AuthService {
         return dtoEntityMapperTest.mapToDto(
                 authRepository.save(userEntity), RegisterResponse.class);
     }
-
 
     public RefreshTokenResponse refreshToken(String refreshToken, HttpServletResponse response) {
         if (refreshToken == null || !jwtComponent.validateToken(refreshToken)) {

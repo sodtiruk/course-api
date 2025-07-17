@@ -8,7 +8,7 @@ import lombok.Data;
 public class BaseResponse<T> {
 
     private String message;
-    private Integer statusCode;
+    private Integer status;
     private T data;
 
 }

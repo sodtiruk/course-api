@@ -2,7 +2,7 @@ package com.project.course.backend.service;
 
 import com.project.course.backend.common.component.DtoEntityMapperTest;
 import com.project.course.backend.module.course.CourseEntity;
-import com.project.course.backend.module.course.CourseRepository;
+import com.project.course.backend.module.course.repository.CourseRepository;
 import com.project.course.backend.module.course.CourseResponse;
 import com.project.course.backend.module.course.CourseService;
 import org.junit.jupiter.api.Assertions;

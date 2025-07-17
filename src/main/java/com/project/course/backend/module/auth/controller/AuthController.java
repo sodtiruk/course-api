@@ -30,7 +30,7 @@ public class AuthController {
         return ResponseEntity.ok(BaseResponse.<LoginResponse>builder()
                 .data(authService.login(response, loginRequest))
                 .message(SUCCESS)
-                .statusCode(SUCCESS_CODE)
+                .status(SUCCESS_CODE)
                 .build());
     }
 
@@ -39,7 +39,7 @@ public class AuthController {
         return ResponseEntity.ok(BaseResponse.<RegisterResponse>builder()
                 .data(authService.register(registerRequest))
                 .message(SUCCESS)
-                .statusCode(SUCCESS_CODE)
+                .status(SUCCESS_CODE)
                 .build());
     }
 
@@ -51,7 +51,7 @@ public class AuthController {
         return ResponseEntity.ok(BaseResponse.<RefreshTokenResponse>builder()
                 .data(authService.refreshToken(refreshToken, response))
                 .message(SUCCESS)
-                .statusCode(SUCCESS_CODE)
+                .status(SUCCESS_CODE)
                 .build());
     }
 

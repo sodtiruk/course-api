@@ -46,7 +46,7 @@ class AuthControllerTest {
         Assertions.assertNotNull(result.getBody());
         assertEquals(new LoginResponse("token123"), result.getBody().getData());
         assertEquals("success", result.getBody().getMessage());
-        assertEquals(200, result.getBody().getStatusCode());
+        assertEquals(200, result.getBody().getStatus());
     }
 
     @Test
@@ -69,7 +69,7 @@ class AuthControllerTest {
         Assertions.assertNotNull(result.getBody());
         assertEquals(new RegisterResponse("new_user"), result.getBody().getData());
         assertEquals("success", result.getBody().getMessage());
-        assertEquals(200, result.getBody().getStatusCode());
+        assertEquals(200, result.getBody().getStatus());
     }
 
     @Test
@@ -88,7 +88,7 @@ class AuthControllerTest {
         Assertions.assertNotNull(result.getBody());
         assertEquals(new RefreshTokenResponse("newAccessToken123"), result.getBody().getData());
         assertEquals("success", result.getBody().getMessage());
-        assertEquals(200, result.getBody().getStatusCode());
+        assertEquals(200, result.getBody().getStatus());
     }
 
 

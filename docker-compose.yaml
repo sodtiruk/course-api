@@ -11,6 +11,14 @@ services:
     networks:
       - my-network
 
+#  redis:
+#    image: redis:latest
+#    container_name: redis
+#    ports:
+#      - "6379:6379"
+#    networks:
+#      - my-network
+
 #  app:
 #    container_name: app
 #    build:

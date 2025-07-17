@@ -1,6 +1,7 @@
 package com.project.course.backend.module.course;
 
 import com.project.course.backend.common.component.DtoEntityMapperTest;
+import com.project.course.backend.module.course.repository.CourseRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

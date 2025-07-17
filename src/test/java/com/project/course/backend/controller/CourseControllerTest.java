@@ -44,7 +44,7 @@ class CourseControllerTest {
         Assertions.assertNotNull(result.getBody());
         assertEquals(courseResponse, result.getBody().getData());
         assertEquals("success", result.getBody().getMessage());
-        assertEquals(200, result.getBody().getStatusCode());
+        assertEquals(200, result.getBody().getStatus());
     }
 
 
