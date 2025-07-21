@@ -1,6 +1,5 @@
 package com.project.course.backend.module.auth.service;
 
-import com.project.course.backend.common.component.DtoEntityMapper;
 import com.project.course.backend.common.component.DtoEntityMapperTest;
 import com.project.course.backend.module.auth.component.JwtComponent;
 import com.project.course.backend.module.auth.dto.request.LoginRequest;
@@ -9,11 +8,11 @@ import com.project.course.backend.module.auth.dto.response.LoginResponse;
 import com.project.course.backend.module.auth.dto.response.RefreshTokenResponse;
 import com.project.course.backend.module.auth.dto.response.RegisterResponse;
 import com.project.course.backend.module.auth.entity.UserEntity;
+import com.project.course.backend.module.auth.exception.AuthException;
 import com.project.course.backend.module.auth.repository.AuthRepository;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -35,7 +34,7 @@ public class AuthService {
 
     public LoginResponse login(HttpServletResponse response, LoginRequest loginRequest) {
         UserEntity userEntity = authRepository.findByEmail(loginRequest.getEmail()).
-                orElseThrow(() -> new UsernameNotFoundException("Email not found"));
+                orElseThrow(AuthException::invalidUser);
 
         if (passwordEncoder.matches(loginRequest.getPassword(), userEntity.getPassword())) {
             Map<String, Object> claims = new HashMap<>();

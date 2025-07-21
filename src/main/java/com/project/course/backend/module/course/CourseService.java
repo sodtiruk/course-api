@@ -1,6 +1,7 @@
 package com.project.course.backend.module.course;
 
 import com.project.course.backend.common.component.DtoEntityMapperTest;
+import com.project.course.backend.module.course.repository.CourseNativeRepository;
 import com.project.course.backend.module.course.repository.CourseRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -13,6 +14,7 @@ public class CourseService {
 
     private final CourseRepository courseRepository;
     private final DtoEntityMapperTest dtoEntityMapperTest;
+    private final CourseNativeRepository courseNativeRepository;
 
     public List<CourseResponse> getAllCourses() {
         List<CourseEntity> courseEntities = courseRepository.findAll();

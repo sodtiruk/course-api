@@ -21,14 +21,12 @@ public class BackendApplication {
 	}
 
 	@Bean
-	public CommandLineRunner commandLineRunner(ApplicationContext ctx) {
+	public CommandLineRunner commandLineRunner() {
 		return args -> {
-
 			String port = environment.getProperty("server.port", "8000");
 			String contextPath = environment.getProperty("server.servlet.context-path", "");
 			String swaggerUrl = "http://localhost:" + port + contextPath + "/swagger-ui.html";
 			log.info("Swagger UI is available at: {}", swaggerUrl);
-
 		};
 	}
 

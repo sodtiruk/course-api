@@ -1,7 +1,7 @@
 package com.project.course.backend.module.healthcheck.controller;
 
 import com.project.course.backend.common.dto.BaseResponse;
-import com.project.course.backend.module.auth.exception.TestException;
+import com.project.course.backend.module.auth.exception.AuthException;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -23,7 +23,7 @@ public class HealthCheckController {
 
     @GetMapping("/profile")
     public String getUserProfile() {
-        throw new TestException("this is a test exception");
+        throw new AuthException("this is a test exception");
     }
 
 }

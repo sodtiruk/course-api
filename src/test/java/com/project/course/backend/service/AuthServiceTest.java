@@ -8,6 +8,7 @@ import com.project.course.backend.module.auth.dto.response.LoginResponse;
 import com.project.course.backend.module.auth.dto.response.RefreshTokenResponse;
 import com.project.course.backend.module.auth.dto.response.RegisterResponse;
 import com.project.course.backend.module.auth.entity.UserEntity;
+import com.project.course.backend.module.auth.exception.AuthException;
 import com.project.course.backend.module.auth.repository.AuthRepository;
 import com.project.course.backend.module.auth.service.AuthService;
 import jakarta.servlet.http.HttpServletResponse;
@@ -17,8 +18,6 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
-import org.modelmapper.ModelMapper;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 import java.util.Map;
@@ -199,13 +198,13 @@ class AuthServiceTest {
         when(authRepository.findByEmail(email)).thenReturn(Optional.empty());
 
         // Act & Assert
-        UsernameNotFoundException exception = assertThrows(
-                UsernameNotFoundException.class,
+        AuthException exception = assertThrows(
+                AuthException.class,
                 () -> authService.login(response, loginRequest)
         );
 
         // ตรวจสอบ message
-        assertEquals("Email not found", exception.getMessage());
+        assertEquals("Invalid email or password", exception.getMessage());
     }
 
     @Test
